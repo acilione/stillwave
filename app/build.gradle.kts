@@ -10,8 +10,8 @@ android {
         applicationId = "app.stillwave"
         minSdk = 26
         targetSdk = 37
-        versionCode = 18
-        versionName = "1.11.1"
+        versionCode = 19
+        versionName = "1.11.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures { compose = true; buildConfig = true }
@@ -32,7 +32,11 @@ android {
     // F-Droid rejects the encrypted Google dependency report and needs byte-identical rebuilds.
     dependenciesInfo { includeInApk = false; includeInBundle = false }
 }
-kotlin { jvmToolchain(17) }
+// Build with JDK 21 (as F-Droid's build server does) so release APKs are reproducible; the bytecode still targets Java 17.
+kotlin {
+    jvmToolchain(21)
+    compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) }
+}
 ksp { arg("room.schemaLocation", "$projectDir/schemas") }
 dependencies {
     implementation(platform("androidx.compose:compose-bom:2026.09.00"))

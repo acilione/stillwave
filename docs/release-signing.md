@@ -13,7 +13,7 @@ Android only installs an update when it carries the same signature as the instal
 F-Droid builds each release tag from source and checks that the result matches the published APK, ignoring the signature. Then it distributes the published APK. To keep builds byte-identical:
 
 - Build releases from a clean checkout of the tag, not from a working tree with local changes. The APK records the commit it was built from.
-- Use JDK 17 and the SDK versions in the [README](../README.md#build).
+- Use JDK 21, the version on F-Droid's build server, and the SDK versions in the [README](../README.md#build).
 - The Gradle build turns off Google's encrypted dependency report (`dependenciesInfo`), which would differ between builds.
 
 ## Signing a release

@@ -113,7 +113,7 @@ Audio continues playing when the app is backgrounded or the phone locks. Android
 
 ## Build
 
-Use Android Studio supporting AGP 9.4, JDK 17, Android SDK Platform **37.0**, and SDK Build Tools 36.0.0 or the AGP default. The Gradle 9.6 wrapper includes distribution checksum verification.
+Use Android Studio supporting AGP 9.4, JDK 21 (the Gradle toolchain requires it; bytecode targets Java 17), Android SDK Platform **37.0**, and SDK Build Tools 36.0.0 or the AGP default. The Gradle 9.6 wrapper includes distribution checksum verification.
 
 ```sh
 sdkmanager 'platforms;android-37.0' 'build-tools;36.0.0'
