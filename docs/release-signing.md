@@ -26,6 +26,6 @@ git clone --branch vX.Y.Z https://github.com/acilione/stillwave.git && cd stillw
 tools/sign-release.sh app/build/outputs/apk/release/app-release-unsigned.apk stillwave-vX.Y.Z.apk
 ```
 
-The script zipaligns, signs with APK Signature Scheme v2/v3, and prints the verification result. Do not add the key to Gradle's `signingConfig`.
+The script signs Gradle's unsigned APK as is, with APK Signature Scheme v2/v3, and prints the verification result. It does not run `zipalign`: F-Droid copies the signature onto its own rebuild, and that copy only verifies if the ZIP layout is unchanged. Do not add the key to Gradle's `signingConfig`.
 
 `--lineage` is only for moving a device that runs a pre-release build signed with the earlier development key: it adds a key-rotation proof so that build updates in place on Android 9 or later. Published APKs never use it.

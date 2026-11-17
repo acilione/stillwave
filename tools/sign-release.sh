@@ -37,9 +37,10 @@ STILLWAVE_RELEASE_PASS=$(prop storePassword)
 RELEASE=(--ks "$(resolve "$(prop storeFile)")" --ks-key-alias "$(prop keyAlias)"
   --ks-pass env:STILLWAVE_RELEASE_PASS --key-pass env:STILLWAVE_RELEASE_PASS)
 
-ALIGNED=$(mktemp --suffix=.apk)
-trap 'rm -f "$ALIGNED"' EXIT
-"$BT/zipalign" -f -p 4 "$IN" "$ALIGNED"
+# Sign Gradle's output as is: F-Droid copies this signature onto its own rebuild, which only
+# verifies if the ZIP layout is untouched. No zipalign pass; apksigner keeps the existing alignment.
+"$BT/zipalign" -c -p 4 "$IN" >/dev/null || { echo "$IN is not page-aligned; use Gradle's unsigned output" >&2; exit 1; }
+ALIGNED=$IN
 
 if [ $LINEAGE = 1 ]; then
   STILLWAVE_LEGACY_PASS=$(prop legacyStorePassword)
@@ -48,9 +49,9 @@ if [ $LINEAGE = 1 ]; then
     --ks-pass env:STILLWAVE_LEGACY_PASS --key-pass env:STILLWAVE_LEGACY_PASS \
     --next-signer "${RELEASE[@]}" \
     --lineage "$(resolve "$(prop lineage)")" --rotation-min-sdk-version 28 \
-    --out "$OUT" "$ALIGNED"
+    --alignment-preserved true --out "$OUT" "$ALIGNED"
 else
-  "$BT/apksigner" sign "${RELEASE[@]}" --out "$OUT" "$ALIGNED"
+  "$BT/apksigner" sign "${RELEASE[@]}" --alignment-preserved true --out "$OUT" "$ALIGNED"
 fi
 
 "$BT/apksigner" verify --verbose --print-certs "$OUT" \
