@@ -1,0 +1,5 @@
+First public release.
+• Light and night themes.
+• Live multitrack preview: hear volume, mute, solo, trims and moves while playing, without rendering the mix first.
+• Play from the cut position; background player for lock-screen controls.
+• Release builds are signed with the Stillwave release key.

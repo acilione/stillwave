@@ -1,0 +1,31 @@
+<p>Stillwave records audio and lets you edit it without ever changing the original file. It has no account, ads, tracking or internet access. Recordings stay on your phone until you share or export them.</p>
+
+<p><b>Recording</b></p>
+<ul>
+<li>Three configurable quality buttons in the app and on the home-screen widget: lossless WAV (16/24/32-bit and float) or compressed AAC.</li>
+<li>Best available mode checks the active microphone and picks a format it really supports.</li>
+<li>Pause, resume, checkpoints and discard from the app, notification or widget.</li>
+<li>Choose the recording microphone; interrupted recordings are recovered on the next launch.</li>
+</ul>
+
+<p><b>Editing</b></p>
+<ul>
+<li>Mark any number of windows with millisecond timestamps, then export them as separate cuts or remove them from a copy.</li>
+<li>Reverse, speed from 0.25× to 4× and optional pitch preservation, with looped preview.</li>
+<li>Untouched WAV sections keep their exact samples.</li>
+</ul>
+
+<p><b>Multitrack and loops</b></p>
+<ul>
+<li>Projects with up to 16 tracks: record takes over a backing track, trim, split and move clips, set volume, mute and solo.</li>
+<li>Live preview plays your edits immediately; save the mix as a new WAV.</li>
+</ul>
+
+<p><b>Library</b></p>
+<ul>
+<li>Folders, pinning, search, date filters and list, grid or compact layouts.</li>
+<li>Background playback with lock-screen controls and loop buttons.</li>
+<li>Light and night themes.</li>
+</ul>
+
+<p>Stillwave is free software under the GPL-3.0-or-later. If you find it useful, you can support its development on Ko-fi: <a href="https://ko-fi.com/cili1">https://ko-fi.com/cili1</a></p>

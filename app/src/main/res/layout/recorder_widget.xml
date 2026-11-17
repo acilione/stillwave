@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="12dp" android:background="@drawable/widget_background">
+    <TextView android:id="@+id/widget_title" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/widget_name" android:textColor="#C5F277" android:textSize="14sp" android:textStyle="bold" />
+    <FrameLayout android:id="@+id/widget_timer_slot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/widget_title">
+        <TextView android:id="@+id/widget_timer" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/widget_zero_time" android:textColor="#F3F5ED" android:textSize="28sp" android:fontFamily="monospace" android:gravity="center" />
+        <Chronometer android:id="@+id/widget_live_timer" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="#F3F5ED" android:textSize="28sp" android:fontFamily="monospace" android:gravity="center" android:visibility="gone" />
+    </FrameLayout>
+    <TextView android:id="@+id/widget_status" android:layout_width="match_parent" android:layout_height="36dp" android:layout_below="@id/widget_timer_slot"
+        android:text="@string/widget_ready" android:textColor="#A9AEA2" android:textSize="12sp" android:gravity="center"
+        android:maxLines="2" android:ellipsize="end" />
+    <RelativeLayout android:id="@+id/widget_controls" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_below="@id/widget_status">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_alignParentTop="true"
+            android:layout_above="@+id/widget_checkpoint" android:layout_marginBottom="4dp">
+            <RelativeLayout android:id="@+id/widget_presets" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/widget_best" android:orientation="horizontal" android:layout_marginBottom="4dp">
+                <Button android:id="@+id/widget_voice" style="@style/WidgetButton.Primary" android:layout_width="0dp" android:layout_weight="1"
+                    android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="14sp" android:autoSizeStepGranularity="1sp"
+                    android:layout_height="match_parent" android:minHeight="56dp" android:text="@string/widget_voice" />
+                <Button android:id="@+id/widget_balanced" style="@style/WidgetButton.Primary" android:layout_width="0dp" android:layout_weight="1"
+                    android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="14sp" android:autoSizeStepGranularity="1sp"
+                    android:layout_height="match_parent" android:minHeight="56dp" android:layout_marginStart="4dp" android:text="@string/widget_balanced" />
+                <Button android:id="@+id/widget_studio" style="@style/WidgetButton.Primary" android:layout_width="0dp" android:layout_weight="1"
+                    android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="14sp" android:autoSizeStepGranularity="1sp"
+                    android:layout_height="match_parent" android:minHeight="56dp" android:layout_marginStart="4dp" android:text="@string/widget_studio" />
+                </LinearLayout>
+                <Button android:id="@+id/widget_best" style="@style/WidgetButton.Primary" android:layout_width="match_parent"
+                    android:layout_height="48dp" android:layout_alignParentBottom="true" android:text="@string/widget_best" />
+            </RelativeLayout>
+            <Button android:id="@+id/widget_record" style="@style/WidgetButton.Primary" android:layout_width="match_parent"
+                android:layout_height="match_parent" android:minHeight="56dp" android:text="@string/widget_pause" android:textSize="20sp" android:visibility="gone" />
+        </FrameLayout>
+        <Button android:id="@+id/widget_checkpoint" style="@style/WidgetButton" android:layout_width="match_parent"
+            android:layout_height="48dp" android:layout_above="@+id/widget_stop_actions" android:layout_marginBottom="4dp" android:text="@string/widget_checkpoint" android:enabled="false" />
+        <LinearLayout android:id="@+id/widget_stop_actions" android:layout_width="match_parent" android:layout_height="52dp" android:orientation="horizontal" android:layout_alignParentBottom="true">
+            <Button android:id="@+id/widget_save" style="@style/WidgetButton" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:text="@string/widget_save" android:enabled="false" />
+            <Button android:id="@+id/widget_discard" style="@style/WidgetButton" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:layout_marginStart="6dp" android:text="@string/widget_discard" android:textColor="#FFAA96" android:enabled="false" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:id="@+id/widget_confirmation" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_below="@id/widget_status" android:orientation="vertical" android:gravity="center" android:visibility="gone">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+            android:text="@string/widget_confirm_question" android:textColor="#F3F5ED" android:textSize="16sp" android:gravity="center" />
+        <Button android:id="@+id/widget_confirm" style="@style/WidgetButton" android:layout_width="match_parent"
+            android:layout_height="52dp" android:text="@string/widget_confirm" android:textColor="#FFAA96" />
+        <Button android:id="@+id/widget_cancel" style="@style/WidgetButton" android:layout_width="match_parent"
+            android:layout_height="52dp" android:layout_marginTop="6dp" android:text="@string/widget_cancel" />
+    </LinearLayout>
+</RelativeLayout>
